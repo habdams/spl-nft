@@ -15,7 +15,7 @@ import {
 import bs58 from "bs58";
 
 const mint = publicKey("GVXAgDENRbdYYW2A9wdzubCr4sQSTCQLbEqcLfkbE3Et");
-const umi = createUmi("https://api.devnet.solana.com");
+const umi = createUmi(process.env.RPC_URL ?? "https://api.devnet.solana.com");
 const keypair = umi.eddsa.createKeypairFromSecretKey(new Uint8Array(wallet));
 const signer = createSignerFromKeypair(umi, keypair);
 

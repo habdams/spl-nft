@@ -6,13 +6,13 @@ import {
 } from "@metaplex-foundation/umi";
 import { irysUploader } from "@metaplex-foundation/umi-uploader-irys";
 
-const umi = createUmi("https://api.devnet.solana.com");
+const umi = createUmi(process.env.RPC_URL ?? "https://api.devnet.solana.com");
 const keypair = umi.eddsa.createKeypairFromSecretKey(new Uint8Array(wallet));
 const signer = createSignerFromKeypair(umi, keypair);
 
 umi.use(
   irysUploader({
-    address: "https://devnet.irys.xyz/",
+    address: process.env.IRYS_UPLOAD_URL ?? "https://devnet.irys.xyz/",
   }),
 );
 

@@ -20,9 +20,11 @@ import {
   getTransferCheckedInstruction,
 } from "@solana-program/token";
 
-const rpc = createSolanaRpc("https://api.devnet.solana.com");
+const rpc = createSolanaRpc(
+  process.env.RPC_URL ?? "https://api.devnet.solana.com",
+);
 const rpcSubscriptions = createSolanaRpcSubscriptions(
-  "wss://api.devnet.solana.com",
+  process.env.RPC_SUB_URL ?? "wss://api.devnet.solana.com",
 );
 
 const mint = address("GVXAgDENRbdYYW2A9wdzubCr4sQSTCQLbEqcLfkbE3Et");

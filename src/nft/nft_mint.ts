@@ -8,7 +8,7 @@ import wallet from "../../devnet-wallet.json";
 import { create, mplCore } from "@metaplex-foundation/mpl-core";
 import { base58 } from "@metaplex-foundation/umi/serializers";
 
-const umi = createUmi("https://api.devnet.solana.com");
+const umi = createUmi(process.env.RPC_URL ?? "https://api.devnet.solana.com");
 const keypair = umi.eddsa.createKeypairFromSecretKey(new Uint8Array(wallet));
 const signer = createSignerFromKeypair(umi, keypair);
 
