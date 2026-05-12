@@ -2,3 +2,4 @@ node_modules
 keys.txt
 *.jpg
 .env
+devnet-wallet.json
